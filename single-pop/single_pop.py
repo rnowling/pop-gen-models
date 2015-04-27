@@ -85,7 +85,7 @@ def plot_log_prob(flname, log_probs):
 	plt.ylabel("Occurrences (Loci)", fontsize=16)
 	plt.savefig(flname, DPI=200)
 
-def simulate(occur_fl, n_steps, plot_basename):
+def simulate(occur_fl, n_steps, plot_flname, prob_flname):
 	print "reading occurrences"
 	observed_counts = read_counts(occur_fl)
 	individual_counts = observed_counts.sum(axis=2)
@@ -93,18 +93,28 @@ def simulate(occur_fl, n_steps, plot_basename):
 
 	sampler = KDE_MCMC_Sampler(observed_counts)
 
+	fl = open(prob_flname, "w")
+
 	locus_log_prob = []
 	for i in xrange(n_steps):
 		freq, log_prob, locus_log_prob = sampler.step()
 		print "step", i, "log prob", log_prob
 
-	plot_log_prob(plot_basename + "_log_prob.pdf", locus_log_prob)
+		if i % 100 == 0:
+			for j, prob in enumerate(locus_log_prob):
+				fl.write("%s %s %s\n" % (i, j, prob))
+
+	fl.close()
+
+
+	plot_log_prob(plot_flname, locus_log_prob)
 
 if __name__ == "__main__":
 	occur_fl = sys.argv[1]
 	n_steps = int(sys.argv[2])
-	plot_basename = sys.argv[3]
+	plot_flname = sys.argv[3]
+	prob_flname = sys.argv[4]
 
-	simulate(occur_fl, n_steps, plot_basename)
+	simulate(occur_fl, n_steps, plot_flname, prob_flname)
 
 	
