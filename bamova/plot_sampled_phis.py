@@ -21,7 +21,7 @@ def plot_phis(plot_flname, subset):
 		xs, ys = estimate_distribution(samples)
 		plt.plot(xs, ys)
 	plt.xlim([-1.0, 1.0])
-	plt.xlabel("\phi", fontsize=16)
+	plt.xlabel("$\phi$", fontsize=16)
 	plt.ylabel("Frequency", fontsize=16)
 	plt.savefig(plot_flname, DPI=200)
 
