@@ -27,7 +27,7 @@ if __name__ == "__main__":
 	predicted_flname = sys.argv[3]
 
 	phi_values = np.load(npy_flname)
-	predicted_loci = sort_by_average_phi(phi_values)
+	predicted_loci = predicted_loci(phi_values)
 	write_predicted(predicted_flname, predicted_loci)
 	
 
