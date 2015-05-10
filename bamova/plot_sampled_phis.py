@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors.kde import KernelDensity
 import matplotlib
 matplotlib.use("cairo")
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 def estimate_distribution(matrix, locus, h=0.2, n_points=100):
 	kde = KernelDensity(bandwidth=h)
