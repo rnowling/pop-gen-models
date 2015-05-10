@@ -1,8 +1,8 @@
 import sys
 import numpy as np
 
-def read_phi(flname, n_steps, n_loci, stride):
-	sampled_phis = np.zeros((n_steps / stride, n_loci))
+def read_phi(flname, n_steps, n_loci):
+	sampled_phis = np.zeros((n_steps, n_loci))
 	fl = open(flname)
 	current_iter_idx = 0 # index used for storage
 	last_iter_idx = 0 # index used to identify when we finish a step
@@ -25,9 +25,8 @@ if __name__ == "__main__":
 	bamova_phi_output_flname = sys.argv[1]
 	n_steps = int(sys.argv[2])
 	n_loci = int(sys.argv[3])
-	stride = int(sys.argv[4])
-	npy_flname = sys.argv[5]
+	npy_flname = sys.argv[4]
 
-	matrix = read_phi(bamova_phi_output_flname, n_steps, n_loci, stride)
+	matrix = read_phi(bamova_phi_output_flname, n_steps, n_loci)
 
 	np.save(matrix, npy_flname)
