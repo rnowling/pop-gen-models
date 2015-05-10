@@ -3,7 +3,7 @@ import sys
 import numpy as np
 
 def predict_loci(phi_values, cutoff_percent):
-	average_phi_values = np.mean(phi_values, axis=1)
+	average_phi_values = np.mean(phi_values, axis=0)
 
 	sortable = []
 	for loci, phi in enumerate(average_phi_values):
