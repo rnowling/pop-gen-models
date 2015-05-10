@@ -27,7 +27,7 @@ if __name__ == "__main__":
 	predicted_flname = sys.argv[3]
 
 	phi_values = np.load(npy_flname)
-	predicted_loci = predict_loci(phi_values)
+	predicted_loci = predict_loci(phi_values, cutoff_percent)
 	write_predicted(predicted_flname, predicted_loci)
 	
 
