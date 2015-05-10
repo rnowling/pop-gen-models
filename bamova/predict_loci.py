@@ -6,7 +6,7 @@ def predict_loci(phi_values, cutoff_percent):
 	average_phi_values = np.mean(axis=1)
 
 	sortable = []
-	for loci, phi in enumerate(average_phi_values)
+	for loci, phi in enumerate(average_phi_values):
 		sortable.append((phi, loci))
 	sortable.sort()
 	sortable.reverse()
