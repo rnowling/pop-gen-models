@@ -8,9 +8,11 @@ from matplotlib import pyplot as plt
 
 def estimate_distribution(samples, h=0.1, n_points=100):
 	kde = KernelDensity(bandwidth=h)
+	min_xs = min(samples)
+	max_xs = max(samples)
 	samples = samples[:, np.newaxis]
 	kde.fit(samples)
-	xs = np.linspace(-1.0, 1.0, n_points)
+	xs = np.linspace(min_xs, max_xs, n_points)
 	ys = [np.exp(kde.score([x])) for x in xs]
 	return xs, ys
 
