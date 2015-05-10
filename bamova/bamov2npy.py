@@ -28,4 +28,4 @@ if __name__ == "__main__":
 
 	matrix = read_phi(bamova_phi_output_flname, n_steps, n_loci)
 
-	np.save(matrix, npy_flname)
+	np.save(npy_flname, matrix)
