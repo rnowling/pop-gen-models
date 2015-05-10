@@ -3,6 +3,7 @@ import sys
 import numpy as np
 from sklearn.neighbors.kde import KernelDensity
 import matplotlib
+matplotlib.use("agg")
 from matplotlib import pyplot
 
 def estimate_distribution(matrix, locus, h=0.2, n_points=100):
