@@ -3,7 +3,7 @@ import sys
 import numpy as np
 from sklearn.neighbors.kde import KernelDensity
 import matplotlib
-matplotlib.use("agg")
+matplotlib.use("cairo")
 from matplotlib import pyplot
 
 def estimate_distribution(matrix, locus, h=0.2, n_points=100):
@@ -32,6 +32,8 @@ if __name__ == "__main__":
 
 	phi_values = np.load(npy_flname)
 	subset = phi_values[:, start:end]
+
+	plot_phis(plot_flname, subset)
 
 
 
