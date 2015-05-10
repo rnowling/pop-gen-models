@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use("cairo")
 from matplotlib import pyplot as plt
 
-def estimate_distribution(samples, h=0.2, n_points=100):
+def estimate_distribution(samples, h=0.1, n_points=100):
 	kde = KernelDensity(bandwidth=h)
 	samples = samples[:, np.newaxis]
 	kde.fit(samples)
