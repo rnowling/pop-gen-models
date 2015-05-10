@@ -9,8 +9,9 @@ from matplotlib import pyplot as plt
 def estimate_distribution(samples, h=0.2, n_points=100):
 	kde = KernelDensity(bandwidth=h)
 	kde.fit(samples.T)
+	print samples.T.shape
 	xs = np.linspace(-1.0, 1.0, n_points)
-	ys = [np.log(kde.score(x)) for x in xs]
+	ys = [np.log(kde.score([x])) for x in xs]
 	return xs, ys
 
 def plot_phis(plot_flname, subset):
