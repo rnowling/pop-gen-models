@@ -10,7 +10,6 @@ def estimate_distribution(samples, h=0.2, n_points=100):
 	kde = KernelDensity(bandwidth=h)
 	samples = samples[:, np.newaxis]
 	kde.fit(samples)
-	print samples
 	xs = np.linspace(-1.0, 1.0, n_points)
 	ys = [np.log(kde.score([x])) for x in xs]
 	return xs, ys
