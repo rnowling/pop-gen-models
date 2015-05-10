@@ -11,11 +11,10 @@ def read_phi(flname, n_steps, n_loci):
 		iter_idx = int(cols[0])
 		locus_idx = int(cols[1])
 		phi = float(cols[2])
-		if current_iter % stride == 0:
-			if last_iter_idx != iter_idx:
-				last_iter_idx = iter_idx
-				current_iter_idx += 1
-			sampled_phis[current_iter_idx, locus_idx] = phi
+		if last_iter_idx != iter_idx:
+			last_iter_idx = iter_idx
+			current_iter_idx += 1
+		sampled_phis[current_iter_idx, locus_idx] = phi
 	fl.close()
 
 	return sampled_phis
