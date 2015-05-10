@@ -10,7 +10,7 @@ def estimate_distribution(matrix, locus, h=0.2, n_points=100):
 	kde = KernelDensity(bandwidth=h)
 	kde.fit(matrix[:, locus])
 	xs = np.linspace(-1.0, 1.0, n_points)
-	ys = np.log(kde.score(xs))
+	ys = np.log(kde.score(xs, 1))
 	return xs, ys
 
 def plot_phis(plot_flname, subset):
