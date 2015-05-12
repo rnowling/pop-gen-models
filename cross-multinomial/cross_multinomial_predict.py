@@ -36,7 +36,7 @@ def main(occur_fl, output_fl):
 	print observed_counts.shape
 	locus_log_probs = probability(observed_counts)
 	
-	sortable = [(locus_log_probs[i], i) for i in len(locus_log_probs)]
+	sortable = [(locus_log_probs[i], i) for i in xrange(len(locus_log_probs))]
 	sortable.sort()
 
 	fl = open(output_fl, "w")
