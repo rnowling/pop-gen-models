@@ -15,7 +15,7 @@ def estimate_distribution(samples, h=0.1, n_points=100):
 	xs = np.linspace(min_xs, max_xs, n_points)
 	ys = np.exp(kde.score_samples(xs[:, np.newaxis]))
 	print xs.shape, ys.shape
-	return xs, ys
+	return xs, ys, sum(ys)
 
 def plot_log_probs(plot_flname, subset):
 	plt.hold(True)
@@ -23,7 +23,6 @@ def plot_log_probs(plot_flname, subset):
 		samples = subset[:, loci]
 		xs, ys = estimate_distribution(samples)
 		ys = ys / sum(ys)
-		print ys
 		plt.plot(xs, ys)
 	plt.xlabel("Log Prob", fontsize=16)
 	plt.ylabel("Frequency", fontsize=16)
