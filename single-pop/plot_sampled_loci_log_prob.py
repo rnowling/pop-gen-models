@@ -22,6 +22,7 @@ def plot_log_probs(plot_flname, subset):
 	for loci in xrange(subset.shape[1]):
 		samples = subset[:, loci]
 		xs, ys = estimate_distribution(samples)
+		ys = ys / sum(ys)
 		plt.plot(xs, ys)
 	plt.xlabel("Log Prob", fontsize=16)
 	plt.ylabel("Frequency", fontsize=16)
