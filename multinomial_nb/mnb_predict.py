@@ -43,7 +43,7 @@ def predict_scores(markers, threshold=0.05):
 		try:
 			mnb = MNB()
 			mnb.fit(marker["individuals"], marker["population_labels"])
-			scores.append((mnb.score(marker["individuals"], marker["population_labels"], i)))
+			scores.append((mnb.score(marker["individuals"], marker["population_labels"]), i))
 		except:
 			scores.append((0.0, i))
 	scores.sort()

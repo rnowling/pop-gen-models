@@ -43,7 +43,7 @@ def predict_scores(markers, threshold=0.05):
 		try:
 			lda = LDA()
 			lda.fit(marker["individuals"], marker["population_labels"])
-			scores.append((lda.score(marker["individuals"], marker["population_labels"], i)))
+			scores.append((lda.score(marker["individuals"], marker["population_labels"]), i))
 		except:
 			scores.append((0.0, i))
 	scores.sort()
