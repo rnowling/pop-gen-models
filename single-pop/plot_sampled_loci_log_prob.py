@@ -13,7 +13,8 @@ def estimate_distribution(samples, h=0.1, n_points=100):
 	samples = samples[:, np.newaxis]
 	kde.fit(samples)
 	xs = np.linspace(min_xs, max_xs, n_points)
-	ys = np.exp(kde.score(xs[:, np.newaxis]))[:, 0]
+	ys = np.exp(kde.score(xs[:, np.newaxis]))
+	print xs.shape, ys.shape
 	return xs, ys
 
 def plot_log_probs(plot_flname, subset):
