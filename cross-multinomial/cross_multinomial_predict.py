@@ -39,8 +39,10 @@ def main(occur_fl, output_fl):
 	sortable = [(locus_log_probs[i], i) for i in xrange(len(locus_log_probs))]
 	sortable.sort()
 
+	threshold_idx = int(0.05 * len(sortable))
+
 	fl = open(output_fl, "w")
-	for log_prob, i in sortable:
+	for log_prob, i in sortable[:threshold_idx]:
 		fl.write("%s %s\n" % (i, log_prob))
 	fl.close()
 
