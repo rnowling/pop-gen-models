@@ -43,7 +43,7 @@ def predict_scores(markers, threshold=0.05):
 		try:
 			bnb = BNB()
 			bnb.fit(marker["individuals"], marker["population_labels"])
-			scores.append(bnb.score(marker["individuals"], marker["population_labels"]))
+			scores.append((bnb.score(marker["individuals"], marker["population_labels"], i)))
 		except:
 			scores.append((0.0, i))
 	scores.sort()
